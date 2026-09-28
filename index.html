@@ -1,0 +1,1151 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Lucha Grecorromana | Transferencia Pedagógica</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --bg: #0b0d10;
+            --bg2: #12161b;
+            --card: #181d23;
+            --text: #f2f2f2;
+            --muted: #aeb4bc;
+            --accent: #e0a83e;
+            --accent2: #f0c66b;
+            --border: rgba(255,255,255,.09);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        /* ================= NAV ================= */
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 65px;
+            background: rgba(11,13,16,.92);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 5%;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-weight: 800;
+            letter-spacing: 1px;
+            color: var(--accent);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+        }
+
+        nav a {
+            color: var(--muted);
+            text-decoration: none;
+            font-size: 14px;
+            transition: .2s;
+        }
+
+        nav a:hover {
+            color: var(--accent);
+        }
+
+        /* ================= GENERAL ================= */
+
+        section {
+            min-height: 100vh;
+            padding: 110px 7% 80px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .container {
+            max-width: 1150px;
+            width: 100%;
+            margin: auto;
+        }
+
+        .eyebrow {
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 13px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        h1 {
+            font-size: clamp(48px, 7vw, 90px);
+            line-height: .95;
+            margin-bottom: 25px;
+        }
+
+        h2 {
+            font-size: clamp(34px, 5vw, 55px);
+            line-height: 1;
+            margin-bottom: 20px;
+        }
+
+        h3 {
+            font-size: 21px;
+            margin-bottom: 10px;
+        }
+
+        p {
+            color: var(--muted);
+            max-width: 800px;
+        }
+
+        .highlight {
+            color: var(--accent);
+        }
+
+        .btn {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 13px 24px;
+            border: 1px solid var(--accent);
+            color: var(--accent);
+            text-decoration: none;
+            border-radius: 6px;
+            transition: .25s;
+        }
+
+        .btn:hover {
+            background: var(--accent);
+            color: #111;
+        }
+
+        /* ================= HERO ================= */
+
+        #inicio {
+            position: relative;
+            overflow: hidden;
+            background:
+                radial-gradient(circle at 80% 30%, rgba(224,168,62,.14), transparent 30%),
+                radial-gradient(circle at 20% 80%, rgba(224,168,62,.07), transparent 30%);
+        }
+
+        .hero-content {
+            max-width: 1000px;
+        }
+
+        .hero-subtitle {
+            font-size: 21px;
+            color: #d0d3d7;
+            max-width: 700px;
+        }
+
+        .hero-line {
+            width: 100px;
+            height: 4px;
+            background: var(--accent);
+            margin: 30px 0;
+        }
+
+        /* ================= CARDS ================= */
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+            margin-top: 40px;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        .card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 25px;
+            transition: .25s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(224,168,62,.5);
+        }
+
+        .icon {
+            font-size: 30px;
+            margin-bottom: 12px;
+        }
+
+        .card p {
+            font-size: 15px;
+        }
+
+        /* ================= OBSERVATION ================= */
+
+        .timeline {
+            display: flex;
+            align-items: stretch;
+            margin-top: 45px;
+            gap: 8px;
+        }
+
+        .timeline-item {
+            flex: 1;
+            background: var(--card);
+            border: 1px solid var(--border);
+            padding: 25px 15px;
+            text-align: center;
+            border-radius: 10px;
+        }
+
+        .timeline-item strong {
+            display: block;
+            color: var(--accent);
+            margin-bottom: 8px;
+        }
+
+        /* ================= TRANSFER ================= */
+
+        .transfer {
+            margin-top: 45px;
+            display: grid;
+            grid-template-columns: 1fr 80px 1fr;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .transfer-box {
+            background: var(--card);
+            padding: 35px;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+        }
+
+        .arrow {
+            text-align: center;
+            font-size: 35px;
+            color: var(--accent);
+        }
+
+        .transfer-box ul {
+            margin-top: 15px;
+            padding-left: 20px;
+            color: var(--muted);
+        }
+
+        /* ================= TABS ================= */
+
+        .tabs {
+            display: flex;
+            gap: 10px;
+            margin: 35px 0;
+            flex-wrap: wrap;
+        }
+
+        .tab {
+            padding: 12px 20px;
+            background: var(--card);
+            color: var(--muted);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            cursor: pointer;
+            transition: .2s;
+        }
+
+        .tab.active,
+        .tab:hover {
+            background: var(--accent);
+            color: #111;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+            animation: fade .35s ease;
+        }
+
+        @keyframes fade {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ================= ACTIVITIES ================= */
+
+        .activity {
+            background: var(--card);
+            border-left: 4px solid var(--accent);
+            padding: 25px;
+            margin: 15px 0;
+            border-radius: 0 10px 10px 0;
+        }
+
+        .activity-number {
+            color: var(--accent);
+            font-weight: bold;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .activity p {
+            margin-top: 8px;
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 7px;
+            margin-top: 15px;
+        }
+
+        .tag {
+            background: rgba(224,168,62,.1);
+            color: var(--accent2);
+            border: 1px solid rgba(224,168,62,.25);
+            border-radius: 20px;
+            padding: 4px 10px;
+            font-size: 12px;
+        }
+
+        /* ================= COMPARISON ================= */
+
+        .comparison {
+            margin-top: 40px;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .comparison-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .comparison-row > div {
+            padding: 17px 20px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .comparison-row > div:first-child {
+            border-right: 1px solid var(--border);
+        }
+
+        .comparison-head {
+            color: var(--accent);
+            font-weight: bold;
+            background: var(--card);
+        }
+
+        /* ================= CONCLUSION ================= */
+
+        #conclusion {
+            background:
+                radial-gradient(circle at 50% 50%, rgba(224,168,62,.1), transparent 45%);
+            text-align: center;
+        }
+
+        #conclusion p {
+            margin: 20px auto;
+            font-size: 20px;
+        }
+
+        .quote {
+            border-left: 4px solid var(--accent);
+            padding: 20px 25px;
+            margin: 35px auto;
+            max-width: 850px;
+            text-align: left;
+            background: rgba(255,255,255,.025);
+            font-size: 20px;
+        }
+
+        footer {
+            padding: 30px;
+            text-align: center;
+            color: #666;
+            border-top: 1px solid var(--border);
+        }
+
+        /* ================= RESPONSIVE ================= */
+
+        @media (max-width: 850px) {
+
+            nav ul {
+                display: none;
+            }
+
+            .grid,
+            .grid-2 {
+                grid-template-columns: 1fr;
+            }
+
+            .timeline {
+                flex-direction: column;
+            }
+
+            .transfer {
+                grid-template-columns: 1fr;
+            }
+
+            .arrow {
+                transform: rotate(90deg);
+            }
+
+            section {
+                padding-left: 5%;
+                padding-right: 5%;
+            }
+
+            .comparison-row {
+                grid-template-columns: 1fr;
+            }
+
+            .comparison-row > div:first-child {
+                border-right: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- ================= NAV ================= -->
+
+<nav>
+    <div class="logo">LUCHA GRECO</div>
+
+    <ul>
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#observacion">Observación</a></li>
+        <li><a href="#transferencia">Transferencia</a></li>
+        <li><a href="#escuela">Escuela / Club</a></li>
+        <li><a href="#adultos">Adultos</a></li>
+        <li><a href="#conclusion">Conclusión</a></li>
+    </ul>
+</nav>
+
+
+<!-- ================= HERO ================= -->
+
+<section id="inicio">
+
+    <div class="container hero-content">
+
+        <div class="eyebrow">Informe de transferencia pedagógica</div>
+
+        <h1>
+            Lucha<br>
+            <span class="highlight">Grecorromana</span>
+        </h1>
+
+        <div class="hero-line"></div>
+
+        <p class="hero-subtitle">
+            Del alto rendimiento al contexto pedagógico:
+            cómo transformar las experiencias observadas en propuestas
+            para escuelas, clubes, adultos y adultos mayores.
+        </p>
+
+        <a href="#observacion" class="btn">
+            Comenzar presentación →
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- ================= OBSERVACION ================= -->
+
+<section id="observacion">
+
+    <div class="container">
+
+        <div class="eyebrow">01 — Observación</div>
+
+        <h2>¿Qué encontramos en el alto rendimiento?</h2>
+
+        <p>
+            La observación de la competencia permitió identificar
+            diferentes demandas físicas, energéticas y coordinativas
+            presentes durante la lucha.
+        </p>
+
+        <div class="grid">
+
+            <div class="card">
+                <div class="icon">⚡</div>
+                <h3>Intensidad</h3>
+                <p>
+                    Variable, con momentos de esfuerzos muy intensos
+                    y acciones explosivas.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="icon">🔋</div>
+                <h3>Sistemas energéticos</h3>
+                <p>
+                    Participación conjunta de ATP-PC, glucolítico
+                    y sistema oxidativo.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="icon">💪</div>
+                <h3>Capacidades físicas</h3>
+                <p>
+                    Fuerza, potencia, resistencia y capacidad de
+                    recuperación.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="icon">⚖️</div>
+                <h3>Equilibrio</h3>
+                <p>
+                    Fundamental para mantener la estabilidad y
+                    generar desequilibrios.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="icon">🧠</div>
+                <h3>Reacción</h3>
+                <p>
+                    El luchador debe percibir y responder rápidamente
+                    a las acciones del rival.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="icon">🔄</div>
+                <h3>Coordinación</h3>
+                <p>
+                    Integración de brazos, piernas, tronco y
+                    desplazamientos.
+                </p>
+            </div>
+
+        </div>
+
+
+        <div class="timeline">
+
+            <div class="timeline-item">
+                <strong>Entrada</strong>
+                Moderada y progresiva
+            </div>
+
+            <div class="timeline-item">
+                <strong>Round 1</strong>
+                Intensidad variable
+            </div>
+
+            <div class="timeline-item">
+                <strong>Pausa</strong>
+                Recuperación
+            </div>
+
+            <div class="timeline-item">
+                <strong>Round 2</strong>
+                Mayor fatiga
+            </div>
+
+            <div class="timeline-item">
+                <strong>Post-combate</strong>
+                Descenso progresivo
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= TRANSFERENCIA ================= -->
+
+<section id="transferencia">
+
+    <div class="container">
+
+        <div class="eyebrow">02 — Transferencia pedagógica</div>
+
+        <h2>No copiar. <span class="highlight">Transformar.</span></h2>
+
+        <p>
+            El objetivo no es reproducir el entrenamiento del atleta
+            de alto rendimiento, sino identificar qué elementos pueden
+            convertirse en experiencias educativas.
+        </p>
+
+
+        <div class="transfer">
+
+            <div class="transfer-box">
+
+                <h3>Alto rendimiento</h3>
+
+                <ul>
+                    <li>Combate reglamentado</li>
+                    <li>Alta intensidad</li>
+                    <li>Rounds de 3 minutos</li>
+                    <li>Acciones explosivas</li>
+                    <li>Fuerza específica</li>
+                    <li>Resultado competitivo</li>
+                </ul>
+
+            </div>
+
+
+            <div class="arrow">→</div>
+
+
+            <div class="transfer-box">
+
+                <h3>Contexto pedagógico</h3>
+
+                <ul>
+                    <li>Juegos de oposición</li>
+                    <li>Intensidad adaptada</li>
+                    <li>Esfuerzos breves</li>
+                    <li>Movimientos controlados</li>
+                    <li>Fuerza funcional</li>
+                    <li>Aprendizaje y participación</li>
+                </ul>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= ESCUELAS / CLUBES ================= -->
+
+<section id="escuela">
+
+    <div class="container">
+
+        <div class="eyebrow">03 — Escuelas y clubes</div>
+
+        <h2>Pedagogía para <span class="highlight">clubes y escuelas</span></h2>
+
+        <p>
+            La lucha puede utilizarse como contenido para desarrollar
+            capacidades físicas, coordinativas, perceptivas y sociales,
+            sin necesidad de reproducir un combate formal.
+        </p>
+
+
+        <div class="activity">
+
+            <div class="activity-number">Actividad 01</div>
+
+            <h3>Espejo de lucha</h3>
+
+            <p>
+                En parejas, un participante realiza desplazamientos
+                y movimientos mientras el otro intenta imitarlos.
+                Luego cambian los roles.
+            </p>
+
+            <div class="tags">
+                <span class="tag">Coordinación</span>
+                <span class="tag">Reacción</span>
+                <span class="tag">Orientación</span>
+                <span class="tag">Equilibrio</span>
+            </div>
+
+        </div>
+
+
+        <div class="activity">
+
+            <div class="activity-number">Actividad 02</div>
+
+            <h3>Empujar y resistir</h3>
+
+            <p>
+                En parejas, se colocan frente a frente y realizan
+                empujes controlados. El objetivo es mantener la posición,
+                no derribar al compañero.
+            </p>
+
+            <div class="tags">
+                <span class="tag">Fuerza</span>
+                <span class="tag">Equilibrio</span>
+                <span class="tag">Control corporal</span>
+            </div>
+
+        </div>
+
+
+        <div class="activity">
+
+            <div class="activity-number">Actividad 03</div>
+
+            <h3>Sacar del círculo</h3>
+
+            <p>
+                Dos participantes intentan desplazar al compañero
+                fuera de una zona delimitada mediante empujes controlados.
+            </p>
+
+            <div class="tags">
+                <span class="tag">Fuerza</span>
+                <span class="tag">Potencia</span>
+                <span class="tag">Equilibrio</span>
+                <span class="tag">Toma de decisiones</span>
+            </div>
+
+        </div>
+
+
+        <div class="activity">
+
+            <div class="activity-number">Actividad 04</div>
+
+            <h3>Reaccionar al movimiento</h3>
+
+            <p>
+                Un participante intenta avanzar hacia una zona mientras
+                el otro debe percibir el movimiento y responder.
+            </p>
+
+            <div class="tags">
+                <span class="tag">Reacción</span>
+                <span class="tag">Anticipación</span>
+                <span class="tag">Percepción</span>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= ADULTOS ================= -->
+
+<section id="adultos">
+
+    <div class="container">
+
+        <div class="eyebrow">04 — Adultos y adultos mayores</div>
+
+        <h2>La lucha como <span class="highlight">experiencia corporal</span></h2>
+
+        <p>
+            En adultos y adultos mayores no buscamos reproducir el combate.
+            Utilizamos elementos de la lucha para favorecer fuerza funcional,
+            equilibrio, movilidad, coordinación, reacción y autonomía.
+        </p>
+
+
+        <div class="tabs">
+
+            <button class="tab active"
+                    onclick="showTab('adultos-propuesta', this)">
+                Adultos
+            </button>
+
+            <button class="tab"
+                    onclick="showTab('mayores-propuesta', this)">
+                Adultos mayores
+            </button>
+
+        </div>
+
+
+        <!-- ADULTOS -->
+
+        <div id="adultos-propuesta" class="tab-content active">
+
+            <div class="grid-2">
+
+                <div class="card">
+
+                    <div class="icon">🤼</div>
+
+                    <h3>Oposición controlada</h3>
+
+                    <p>
+                        En parejas, intentar tocar la mano del compañero
+                        mientras este evita el contacto.
+                    </p>
+
+                    <div class="tags">
+                        <span class="tag">Reacción</span>
+                        <span class="tag">Coordinación</span>
+                        <span class="tag">Equilibrio</span>
+                    </div>
+
+                </div>
+
+
+                <div class="card">
+
+                    <div class="icon">⚖️</div>
+
+                    <h3>Mantener la posición</h3>
+
+                    <p>
+                        Desplazarse y, ante una señal, detenerse y
+                        mantener una posición estable.
+                    </p>
+
+                    <div class="tags">
+                        <span class="tag">Equilibrio</span>
+                        <span class="tag">Control corporal</span>
+                        <span class="tag">Atención</span>
+                    </div>
+
+                </div>
+
+
+                <div class="card">
+
+                    <div class="icon">💪</div>
+
+                    <h3>Empujar y mantener</h3>
+
+                    <p>
+                        Realizar una presión suave con las manos
+                        mientras el compañero mantiene su posición.
+                    </p>
+
+                    <div class="tags">
+                        <span class="tag">Fuerza funcional</span>
+                        <span class="tag">Estabilidad</span>
+                    </div>
+
+                </div>
+
+
+                <div class="card">
+
+                    <div class="icon">🎯</div>
+
+                    <h3>Reaccionar a señales</h3>
+
+                    <p>
+                        Responder a diferentes señales visuales o
+                        sonoras mediante cambios de dirección.
+                    </p>
+
+                    <div class="tags">
+                        <span class="tag">Reacción</span>
+                        <span class="tag">Orientación</span>
+                        <span class="tag">Atención</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- ADULTOS MAYORES -->
+
+        <div id="mayores-propuesta" class="tab-content">
+
+            <div class="grid-2">
+
+                <div class="card">
+
+                    <div class="icon">🪑</div>
+
+                    <h3>Trabajo con apoyo</h3>
+
+                    <p>
+                        Las actividades pueden realizarse cerca de una
+                        silla o utilizarla como apoyo cuando sea necesario.
+                    </p>
+
+                </div>
+
+
+                <div class="card">
+
+                    <div class="icon">🚶</div>
+
+                    <h3>Desplazamientos controlados</h3>
+
+                    <p>
+                        Recorridos cortos, cambios de dirección y
+                        movimientos a intensidad moderada.
+                    </p>
+
+                </div>
+
+
+                <div class="card">
+
+                    <div class="icon">⚖️</div>
+
+                    <h3>Equilibrio</h3>
+
+                    <p>
+                        Juegos de estabilidad y control postural
+                        adaptados a las posibilidades individuales.
+                    </p>
+
+                </div>
+
+
+                <div class="card">
+
+                    <div class="icon">🧠</div>
+
+                    <h3>Reacción y orientación</h3>
+
+                    <p>
+                        Juegos con señales visuales y sonoras para
+                        estimular atención y respuesta motriz.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="quote">
+
+                En adultos mayores, la prioridad no es competir:
+                <strong>es moverse con seguridad, confianza y autonomía.</strong>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= COMPARACION ================= -->
+
+<section>
+
+    <div class="container">
+
+        <div class="eyebrow">05 — Adaptación</div>
+
+        <h2>Del combate a la <span class="highlight">educación</span></h2>
+
+        <p>
+            El mismo principio puede adquirir una finalidad diferente
+            según el contexto.
+        </p>
+
+
+        <div class="comparison">
+
+            <div class="comparison-row comparison-head">
+                <div>Alto rendimiento</div>
+                <div>Contexto pedagógico</div>
+            </div>
+
+            <div class="comparison-row">
+                <div>Fuerza para controlar al rival</div>
+                <div>Fuerza para mejorar la estabilidad</div>
+            </div>
+
+            <div class="comparison-row">
+                <div>Reacción ante el adversario</div>
+                <div>Respuesta ante estímulos</div>
+            </div>
+
+            <div class="comparison-row">
+                <div>Equilibrio durante el combate</div>
+                <div>Control corporal y seguridad</div>
+            </div>
+
+            <div class="comparison-row">
+                <div>Oposición para obtener ventaja</div>
+                <div>Oposición para aprender y desarrollarse</div>
+            </div>
+
+            <div class="comparison-row">
+                <div>Resultado competitivo</div>
+                <div>Aprendizaje y participación</div>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= CONCLUSION ================= -->
+
+<section id="conclusion">
+
+    <div class="container">
+
+        <div class="eyebrow">06 — Cierre</div>
+
+        <h2>¿Qué aprendimos?</h2>
+
+        <p>
+            La observación del alto rendimiento nos permitió comprender
+            que la teoría adquiere verdadero sentido cuando podemos
+            interpretarla y adaptarla a diferentes realidades.
+        </p>
+
+        <div class="quote">
+
+            “El desafío docente no consiste en reproducir el alto rendimiento,
+            sino en <strong>transformar sus principios en experiencias adecuadas
+            al contexto, las características y las posibilidades de los
+            participantes.</strong>”
+
+        </div>
+
+        <p>
+            La lucha grecorromana puede convertirse así en una herramienta
+            pedagógica para desarrollar capacidades físicas, coordinativas,
+            cognitivas y sociales en diferentes poblaciones.
+        </p>
+
+        <a href="#inicio" class="btn">
+            ↑ Volver al inicio
+        </a>
+
+    </div>
+
+</section>
+
+
+<footer>
+    Lucha Grecorromana — Informe de Transferencia Pedagógica
+</footer>
+
+
+<!-- ================= JAVASCRIPT ================= -->
+
+<script>
+
+    function showTab(tabId, button) {
+
+        // Ocultar todos los contenidos
+        const contents = document.querySelectorAll('.tab-content');
+
+        contents.forEach(function(content) {
+            content.classList.remove('active');
+        });
+
+        // Quitar estado activo de los botones
+        const buttons = document.querySelectorAll('.tab');
+
+        buttons.forEach(function(btn) {
+            btn.classList.remove('active');
+        });
+
+        // Mostrar contenido seleccionado
+        document.getElementById(tabId).classList.add('active');
+
+        // Activar botón
+        button.classList.add('active');
+    }
+
+
+    // Navegación con teclado
+    document.addEventListener('keydown', function(event) {
+
+        const sections = Array.from(document.querySelectorAll('section'));
+
+        let currentIndex = 0;
+
+        const scrollPosition = window.scrollY + window.innerHeight / 2;
+
+        sections.forEach(function(section, index) {
+
+            if (
+                scrollPosition >= section.offsetTop &&
+                scrollPosition < section.offsetTop + section.offsetHeight
+            ) {
+                currentIndex = index;
+            }
+
+        });
+
+
+        if (event.key === 'ArrowDown') {
+
+            event.preventDefault();
+
+            if (currentIndex < sections.length - 1) {
+
+                sections[currentIndex + 1].scrollIntoView({
+                    behavior: 'smooth'
+                });
+
+            }
+
+        }
+
+
+        if (event.key === 'ArrowUp') {
+
+            event.preventDefault();
+
+            if (currentIndex > 0) {
+
+                sections[currentIndex - 1].scrollIntoView({
+                    behavior: 'smooth'
+                });
+
+            }
+
+        }
+
+    });
+
+</script>
+
+</body>
+</html>
